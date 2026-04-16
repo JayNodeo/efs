@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-purple-dark: #3D1F6E;
+  --color-purple-mid: #6B4FBB;
+  --color-purple-light: #EDE8F8;
+  --color-gold: #F2A83B;
+  --color-gold-light: #FFF8ED;
+  --color-navy: #1A1A2E;
+  --color-near-black: #1A1A2E;
+  --color-cream: #FAF8F5;
+  --color-gray-text: #555555;
+  --color-gray-light: #F5F3FC;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Editorial heading utility */
+.editorial-heading {
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+/* Flat card — dark context */
+.flat-card-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Flat card — light context */
+.flat-card-light {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* Legacy glass-card — redefined as flat */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Horizontal scroll snap for mobile */
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-snap-x > * {
+  scroll-snap-align: center;
+}
