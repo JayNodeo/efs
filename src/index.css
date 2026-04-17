@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  /* Brand colors (preserved) */
   --color-purple-dark: #3D1F6E;
   --color-purple-mid: #6B4FBB;
   --color-purple-light: #EDE8F8;
@@ -8,42 +9,131 @@
   --color-gold-light: #FFF8ED;
   --color-navy: #1A1A2E;
   --color-near-black: #1A1A2E;
-  --color-cream: #FAF8F5;
-  --color-gray-text: #555555;
+
+  /* Editorial palette (borrowed from mockup) */
+  --color-cream: #F5F4F0;
+  --color-ink: #1a1a18;
+  --color-muted: #5a5a56;
+  --color-subtle: #888780;
+  --color-border: #dddbd3;
+  --color-amber-bg: #FAEEDA;
+  --color-amber-text: #633806;
+
+  /* Legacy (kept for backwards compat) */
+  --color-gray-text: #5a5a56;
   --color-gray-light: #F5F3FC;
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Playfair Display", serif;
+
+  /* Fonts */
+  --font-sans: "DM Sans", "Inter", sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
 /* Editorial heading utility */
 .editorial-heading {
   font-family: var(--font-serif);
-  text-transform: uppercase;
   letter-spacing: -0.02em;
-  line-height: 0.95;
+  line-height: 1.05;
 }
 
-/* Flat card — dark context */
+/* Flat card — unified editorial style (replaces old light/dark variants) */
+.flat-card,
+.flat-card-light,
 .flat-card-dark {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 0.5px solid var(--color-border);
+  box-shadow: none;
 }
 
-/* Flat card — light context */
-.flat-card-light {
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+/* Inverse card — on light backgrounds, occasionally for contrast */
+.flat-card-inverse {
+  background: var(--color-cream);
+  border: 0.5px solid var(--color-border);
 }
 
 /* Legacy glass-card — redefined as flat */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 0.5px solid var(--color-border);
+}
+
+/* Eyebrow pill — gold badge with dot */
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-gold);
+  color: #412402;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.eyebrow-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #BA7517;
+  border-radius: 50%;
+}
+
+/* Amber tag — for module numbers, small category pills */
+.amber-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--color-amber-bg);
+  color: var(--color-amber-text);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+/* Section header with horizontal rule extending to the right */
+.section-rule {
+  flex: 1;
+  height: 0.5px;
+  background: var(--color-border);
+}
+
+/* Arrow-bullet list — for module/curriculum items */
+.arrow-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.arrow-list li {
+  font-size: 13px;
+  color: var(--color-muted);
+  line-height: 1.5;
+  padding: 6px 0;
+  border-top: 0.5px solid var(--color-border);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.arrow-list li::before {
+  content: "→";
+  color: var(--color-gold);
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 1px;
 }
 
 /* Horizontal scroll snap for mobile */

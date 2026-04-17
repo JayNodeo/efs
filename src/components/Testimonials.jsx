@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const staggerContainer = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const testimonials = [
@@ -17,7 +17,6 @@ const testimonials = [
     name: "Sarah K.",
     role: "VP of Innovation, Financial Services",
     avatar: null,
-    accent: "gold",
   },
   {
     quote:
@@ -25,7 +24,6 @@ const testimonials = [
     name: "Marcus J.",
     role: "Chief People Officer, Media Company",
     avatar: null,
-    accent: "purple-mid",
   },
   {
     quote:
@@ -33,66 +31,43 @@ const testimonials = [
     name: "Priya R.",
     role: "Product Lead, Healthcare Administration",
     avatar: null,
-    accent: "gold",
   },
   {
     quote:
-      "What sets this apart from other corporate programs is the network. Our cohort connected us with investors, operators, and builders from completely different industries — perspectives we could never get internally.",
+      "What sets this apart is the network. Our cohort connected us with investors, operators, and builders from completely different industries — perspectives we could never get internally.",
     name: "David L.",
     role: "Director of Strategy, Professional Services",
     avatar: null,
-    accent: "purple-mid",
   },
 ];
 
-function AvatarPlaceholder({ name, avatar, accent }) {
+function Avatar({ name }) {
   const initials = name
     .split(" ")
     .map((n) => n[0])
     .join("");
-
-  const colorMap = {
-    gold: "bg-gold-light text-gold",
-    "purple-mid": "bg-purple-light text-purple-mid",
-  };
-
-  if (avatar) {
-    return (
-      <img
-        src={avatar}
-        alt={name}
-        className="w-12 h-12 rounded-full object-cover"
-      />
-    );
-  }
-
   return (
-    <div
-      className={`w-12 h-12 rounded-full ${colorMap[accent]} flex items-center justify-center`}
-    >
-      <span className="text-sm font-bold">{initials}</span>
+    <div className="w-9 h-9 rounded-full bg-[#FAEEDA] text-[#633806] flex items-center justify-center">
+      <span className="text-[11px] font-semibold">{initials}</span>
     </div>
   );
 }
 
 export default function Testimonials() {
   return (
-    <section className="bg-cream py-24 md:py-36 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-cream px-4 py-8">
+      <div className="max-w-[860px] mx-auto">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto"
+          className="flex items-baseline gap-3 mb-4"
         >
-          <span className="text-purple-mid text-xs uppercase tracking-[0.2em] font-semibold">
-            Testimonials
-          </span>
-          <h2 className="mt-5 font-serif text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-near-black">
-            Hear from teams{" "}
-            <span className="text-gold">who made the shift</span>
+          <h2 className="font-serif text-[1.4rem] font-bold text-ink whitespace-nowrap">
+            Hear from teams who shifted
           </h2>
+          <div className="section-rule" />
         </motion.div>
 
         <motion.div
@@ -100,37 +75,27 @@ export default function Testimonials() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-16 grid md:grid-cols-2 gap-6"
+          className="grid md:grid-cols-2 gap-3"
         >
-          {testimonials.map((t, i) => (
+          {testimonials.map((t) => (
             <motion.div
               key={t.name}
               variants={fadeUp}
-              className={i === 0 ? "md:row-span-2" : ""}
+              className="flat-card rounded-xl p-6"
             >
-              <div className={`flat-card-light rounded-lg p-8 md:p-10 h-full flex flex-col ${i === 0 ? "justify-between" : ""}`}>
-                {/* Quote icon */}
-                <div className="mb-6">
-                  <svg className="w-8 h-8 text-gold/40" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
-                </div>
+              <svg className="w-6 h-6 mb-4" fill="#F2A83B" fillOpacity="0.5" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
 
-                <blockquote className={`text-near-black/80 leading-relaxed mb-8 flex-1 ${i === 0 ? "text-lg md:text-xl" : "text-sm md:text-base"}`}>
-                  "{t.quote}"
-                </blockquote>
+              <blockquote className="text-[14px] leading-[1.65] text-ink/80">
+                "{t.quote}"
+              </blockquote>
 
-                {/* Author */}
-                <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
-                  <AvatarPlaceholder
-                    name={t.name}
-                    avatar={t.avatar}
-                    accent={t.accent}
-                  />
-                  <div>
-                    <p className="text-near-black font-semibold text-sm">{t.name}</p>
-                    <p className="text-gray-text text-xs mt-0.5">{t.role}</p>
-                  </div>
+              <div className="mt-5 pt-4 border-t border-[#dddbd3] flex items-center gap-3">
+                <Avatar name={t.name} />
+                <div>
+                  <p className="text-[13px] font-medium text-ink">{t.name}</p>
+                  <p className="text-[11px] text-subtle mt-0.5">{t.role}</p>
                 </div>
               </div>
             </motion.div>

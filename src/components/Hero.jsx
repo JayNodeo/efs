@@ -1,96 +1,78 @@
 import { motion } from "framer-motion";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 export default function Hero() {
   return (
-    <section className="bg-navy py-20 md:py-32 px-6">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-        {/* Left column — copy */}
+    <section className="bg-cream px-4 pt-8 pb-6">
+      <div className="max-w-[860px] mx-auto">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate="visible"
+          className="flat-card rounded-xl px-8 py-10 md:px-12 md:py-14"
         >
-          <h1 className="font-serif text-6xl md:text-7xl lg:text-[5.5rem] font-black uppercase leading-[0.95] tracking-tight">
-            <span className="text-white">Equip Your Team</span>
-            <br />
-            <span className="text-gold">to Build.</span>
+          {/* Eyebrow */}
+          <span className="eyebrow-pill">Angel Squad · Emerging Founder School</span>
+
+          {/* Headline */}
+          <h1 className="mt-6 font-serif text-4xl md:text-5xl lg:text-[3.2rem] font-black leading-[1.05] tracking-tight text-ink max-w-[620px]">
+            Equip your team for{" "}
+            <em className="font-serif italic font-black text-gold">the age of AI.</em>
           </h1>
 
-          <p className="mt-8 text-white/70 text-lg max-w-md leading-relaxed">
-            A 12-session program that transforms your employees into
-            confident builders — with the venture-tested frameworks, AI
-            fluency, and network to drive real value inside your
-            organization.
+          {/* Small label */}
+          <p className="mt-4 text-[12px] font-medium uppercase tracking-[0.08em] text-subtle">
+            Turn employees into builders
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-6">
+          {/* Subhead */}
+          <p className="mt-4 text-[16px] leading-[1.65] text-muted max-w-[520px]">
+            A 12-session program that gives your workforce the same builder
+            frameworks venture-backed founders use — problem discovery,
+            customer validation, and shipping under pressure — applied to
+            your business.
+          </p>
+
+          {/* CTAs */}
+          <div className="mt-8 flex flex-wrap items-center gap-5">
             <a
               href="#apply"
-              className="bg-gold text-near-black font-bold px-10 py-4 rounded-sm text-sm uppercase tracking-wider hover:bg-gold/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-gold text-near-black text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors"
             >
-              Get Started
+              Request a pilot →
             </a>
             <a
               href="#program"
-              className="text-white/60 text-sm font-medium hover:text-gold transition-colors flex items-center gap-2"
+              className="text-muted text-[14px] font-medium hover:text-ink transition-colors"
             >
-              Learn More
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
+              Explore the curriculum
             </a>
           </div>
-        </motion.div>
 
-        {/* Right column — photo grid */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-2 gap-3"
-        >
-          {["portrait", "portrait", "portrait", "portrait"].map((_, i) => (
-            <motion.div key={i} variants={fadeUp}>
-              <ImagePlaceholder
-                alt={`Builder ${i + 1}`}
-                icon="person"
-                aspect="portrait"
-                className="w-full rounded-sm"
-              />
-            </motion.div>
-          ))}
+          {/* Divider */}
+          <hr className="my-8 border-0 border-t border-[#dddbd3]" />
+
+          {/* Stats */}
+          <div className="flex flex-wrap gap-10">
+            <div>
+              <p className="font-serif text-[1.6rem] font-bold text-ink leading-none">12</p>
+              <p className="mt-1 text-xs text-subtle">core sessions</p>
+            </div>
+            <div>
+              <p className="font-serif text-[1.6rem] font-bold text-ink leading-none">2,000+</p>
+              <p className="mt-1 text-xs text-subtle">Angel Squad investors</p>
+            </div>
+            <div>
+              <p className="font-serif text-[1.6rem] font-bold text-ink leading-none">500+</p>
+              <p className="mt-1 text-xs text-subtle">companies backed</p>
+            </div>
+          </div>
         </motion.div>
       </div>
-
-      {/* Stats strip */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        animate="visible"
-        className="max-w-7xl mx-auto mt-16 pt-10 border-t border-white/10 flex flex-wrap justify-center md:justify-start gap-12"
-      >
-        {[
-          { value: "12", label: "Sessions" },
-          { value: "500+", label: "Builders empowered" },
-          { value: "100%", label: "Hands-on" },
-        ].map((stat) => (
-          <div key={stat.label}>
-            <p className="font-serif text-3xl font-bold text-gold">{stat.value}</p>
-            <p className="text-white/40 text-xs uppercase tracking-wider mt-1">{stat.label}</p>
-          </div>
-        ))}
-      </motion.div>
     </section>
   );
 }

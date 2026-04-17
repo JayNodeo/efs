@@ -1,103 +1,82 @@
 import { motion } from "framer-motion";
-import ImagePlaceholder from "./ImagePlaceholder";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const personas = [
   {
-    title: "Companies facing AI-driven disruption",
-    body: "Your industry is being reshaped by AI and you know that tool adoption is not enough. You need your people to spot problems worth solving, validate assumptions before committing resources, and ship solutions — not just follow instructions better.",
-    imageAlt: "Enterprise team photo",
-    stats: [
-      { label: "Company size", value: "500+" },
-      { label: "Industries", value: "Services / Finance / Media / Health" },
-    ],
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <rect x="2" y="3" width="12" height="10" rx="2" stroke="#BA7517" strokeWidth="1.5" />
+        <path d="M5 7h6M5 10h4" stroke="#BA7517" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    title: "Companies facing AI disruption",
+    body: "Your industry is being reshaped and you know tool adoption is not enough. You need your people to spot problems, validate assumptions, and ship solutions.",
+    meta: "Services · Finance · Media · Health",
   },
   {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="8" cy="5" r="3" stroke="#BA7517" strokeWidth="1.5" />
+        <path d="M2 14c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="#BA7517" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
     title: "Leaders who see training as investment",
-    body: "You are a CEO, CFO, or executive who understands that workforce transformation is competitive positioning, not a discretionary training expense. You want a program that produces a measurable behavioral shift across your organization, not another workshop that gets forgotten.",
-    imageAlt: "Executive leadership photo",
-    stats: [
-      { label: "Buyer", value: "C-Suite" },
-      { label: "Outcome", value: "Org-wide shift" },
-    ],
+    body: "A CEO, CFO, or executive who understands workforce transformation is competitive positioning, not a discretionary expense. You want measurable behavioral shift.",
+    meta: "C-Suite buyer · Org-wide outcome",
+  },
+  {
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 2L9.5 6.5H14L10.5 9L12 13.5L8 11L4 13.5L5.5 9L2 6.5H6.5L8 2Z" stroke="#BA7517" strokeWidth="1.5" strokeLinejoin="round" />
+      </svg>
+    ),
+    title: "Innovation champions inside the org",
+    body: "Chief People Officers, VPs of Innovation, or Heads of L&D who surface the need — builders and advocates pushing beyond tool-focused training.",
+    meta: "Internal champions",
   },
 ];
 
 export default function Audience() {
   return (
-    <section className="bg-navy py-24 md:py-36 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-cream px-4 py-8">
+      <div className="max-w-[860px] mx-auto">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto"
+          className="flex items-baseline gap-3 mb-4"
         >
-          <span className="text-gold text-xs uppercase tracking-[0.2em] font-semibold">
-            Who it's for
-          </span>
-          <h2 className="mt-5 font-serif text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.95] tracking-tight text-white">
-            Built for forward-thinking organizations
+          <h2 className="font-serif text-[1.4rem] font-bold text-ink whitespace-nowrap">
+            Who this is for
           </h2>
+          <div className="section-rule" />
         </motion.div>
 
-        <div className="mt-16 grid md:grid-cols-2 gap-8">
-          {personas.map((persona, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {personas.map((p, i) => (
             <motion.div
-              key={persona.title}
+              key={p.title}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flat-card-dark rounded-lg overflow-hidden"
+              transition={{ delay: i * 0.08 }}
+              className="flat-card rounded-xl p-5"
             >
-              <ImagePlaceholder
-                alt={persona.imageAlt}
-                icon="person"
-                aspect="wide"
-                className="w-full rounded-none border-0"
-              />
-
-              <div className="p-8 md:p-10">
-                <h3 className="text-2xl font-bold text-white">
-                  {persona.title}
-                </h3>
-
-                <p className="mt-4 text-white/50 text-sm leading-relaxed">
-                  {persona.body}
-                </p>
-
-                <div className="mt-8 flex gap-8">
-                  {persona.stats.map((stat) => (
-                    <div key={stat.label}>
-                      <p className="text-white/30 text-xs uppercase tracking-wider">{stat.label}</p>
-                      <p className="font-serif text-2xl font-bold text-gold mt-1">{stat.value}</p>
-                    </div>
-                  ))}
-                </div>
+              <div className="w-8 h-8 rounded-lg bg-[#FAEEDA] flex items-center justify-center mb-3">
+                {p.icon}
               </div>
+              <p className="text-[14px] font-medium text-ink mb-1.5">{p.title}</p>
+              <p className="text-[13px] text-muted leading-[1.55]">{p.body}</p>
+              <p className="mt-3 text-[11px] text-subtle uppercase tracking-wider">{p.meta}</p>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <p className="text-white/40 text-base md:text-lg max-w-xl mx-auto">
-            The skills are universal. The context is your business. The outcome
-            is an organization that builds, not just operates.
-          </p>
-        </motion.div>
       </div>
     </section>
   );

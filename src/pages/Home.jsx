@@ -1,5 +1,7 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import AsSeenIn from "../components/AsSeenIn";
+import Speakers from "../components/Speakers";
 import Problem from "../components/Problem";
 import Audience from "../components/Audience";
 import CentralIdea from "../components/CentralIdea";
@@ -17,6 +19,8 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <AsSeenIn />
+      <Speakers />
       <Problem />
       <Audience />
       <CentralIdea />
