@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-cream border-t border-[#dddbd3] px-4 py-8 pb-24">
@@ -6,14 +8,22 @@ export default function Footer() {
           <p>
             &copy; Hustle Fund™ · 1180 San Carlos Ave, Suite 337, San Carlos CA 94070
           </p>
-          <a
-            href="https://hustlefund.vc"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-ink transition-colors"
-          >
-            hustlefund.vc
-          </a>
+          <div className="flex items-center gap-5">
+            <Link
+              to="/founders"
+              className="hover:text-ink transition-colors"
+            >
+              Founder Program
+            </Link>
+            <a
+              href="https://hustlefund.vc"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-ink transition-colors"
+            >
+              hustlefund.vc
+            </a>
+          </div>
         </div>
       </div>
     </footer>
