@@ -87,9 +87,16 @@ export default function Speakers() {
 
   const scrollToIndex = useCallback((idx) => {
     const target = itemRefs.current[idx];
-    if (target && scrollRef.current) {
-      target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
-    }
+    const root = scrollRef.current;
+    if (!target || !root) return;
+    // Scroll the carousel container horizontally only — never touch page scroll.
+    // Setting scrollLeft directly avoids any focus/snap side-effect from
+    // scrollTo({behavior:'smooth'}) that some browsers propagate up the tree.
+    const left =
+      target.getBoundingClientRect().left -
+      root.getBoundingClientRect().left +
+      root.scrollLeft;
+    root.scrollLeft = left;
   }, []);
 
   const goPrev = () => scrollToIndex(Math.max(0, activeIndex - 1));
