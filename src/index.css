@@ -46,7 +46,7 @@ body {
   line-height: 1.05;
 }
 
-/* Flat card — unified editorial style (replaces old light/dark variants) */
+/* Flat card: unified editorial style (replaces old light/dark variants) */
 .flat-card,
 .flat-card-light,
 .flat-card-dark {
@@ -55,19 +55,19 @@ body {
   box-shadow: none;
 }
 
-/* Inverse card — on light backgrounds, occasionally for contrast */
+/* Inverse card: on light backgrounds, occasionally for contrast */
 .flat-card-inverse {
   background: var(--color-cream);
   border: 0.5px solid var(--color-border);
 }
 
-/* Legacy glass-card — redefined as flat */
+/* Legacy glass-card: redefined as flat */
 .glass-card {
   background: #ffffff;
   border: 0.5px solid var(--color-border);
 }
 
-/* Eyebrow pill — gold badge with dot */
+/* Eyebrow pill: gold badge with dot */
 .eyebrow-pill {
   display: inline-flex;
   align-items: center;
@@ -90,7 +90,7 @@ body {
   border-radius: 50%;
 }
 
-/* Amber tag — for module numbers, small category pills */
+/* Amber tag: for module numbers, small category pills */
 .amber-tag {
   display: inline-block;
   font-size: 10px;
@@ -110,7 +110,7 @@ body {
   background: var(--color-border);
 }
 
-/* Arrow-bullet list — for module/curriculum items */
+/* Arrow-bullet list: for module/curriculum items */
 .arrow-list {
   list-style: none;
   padding: 0;

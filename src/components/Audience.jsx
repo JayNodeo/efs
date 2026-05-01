@@ -35,7 +35,7 @@ const personas = [
       </svg>
     ),
     title: "Innovation champions inside the org",
-    body: "Chief People Officers, VPs of Innovation, or Heads of L&D who surface the need — builders and advocates pushing beyond tool-focused training.",
+    body: "Chief People Officers, VPs of Innovation, or Heads of L&D who surface the need. They are builders and advocates pushing beyond tool-focused training.",
     meta: "Internal champions",
   },
 ];

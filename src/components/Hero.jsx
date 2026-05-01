@@ -32,13 +32,13 @@ export default function Hero() {
           {/* Subhead */}
           <p className="mt-4 text-[16px] leading-[1.65] text-muted max-w-[520px]">
             A 12-session program that gives your workforce the same builder
-            frameworks venture-backed founders use — problem discovery,
-            customer validation, and shipping under pressure — applied to
+            frameworks venture-backed founders use (problem discovery,
+            customer validation, and shipping under pressure), applied to
             your business.
           </p>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-wrap items-center gap-5">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#apply"
               className="inline-flex items-center gap-2 bg-gold text-near-black text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors"
@@ -47,7 +47,7 @@ export default function Hero() {
             </a>
             <a
               href="#program"
-              className="text-muted text-[14px] font-medium hover:text-ink transition-colors"
+              className="inline-flex items-center gap-2 border border-ink text-ink text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-ink hover:text-cream transition-colors"
             >
               Explore the curriculum
             </a>

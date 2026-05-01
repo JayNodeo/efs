@@ -152,7 +152,7 @@ export default function Curriculum() {
             <p className="mt-4 text-[15px] leading-[1.65] text-muted max-w-[560px]">
               Twelve sessions. Two parts. One transformation. Each session
               blends async video content, live workshops, and hands-on
-              sprints — applied directly to your business.
+              sprints, applied directly to your business.
             </p>
           </motion.div>
         </div>

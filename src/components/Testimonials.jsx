@@ -34,7 +34,7 @@ const testimonials = [
   },
   {
     quote:
-      "What sets this apart is the network. Our cohort connected us with investors, operators, and builders from completely different industries — perspectives we could never get internally.",
+      "What sets this apart is the network. Our cohort connected us with investors, operators, and builders from completely different industries. Perspectives we could never get internally.",
     name: "David L.",
     role: "Director of Strategy, Professional Services",
     avatar: null,

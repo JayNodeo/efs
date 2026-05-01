@@ -161,7 +161,7 @@ function FoundersHero() {
 
           <p className="mt-4 text-[16px] leading-[1.65] text-muted max-w-[560px]">
             An async course for early-to-mid career professionals looking to
-            build a company — giving you the frameworks, language, and
+            build a company, giving you the frameworks, language, and
             investor perspective to go from idea to pitch-ready.
           </p>
 
@@ -489,7 +489,7 @@ function CorporateCallout() {
             <p className="text-[13px] text-muted leading-[1.6]">
               If you're a corporation, incubator, or accelerator looking to
               deliver AI-readiness and founder mindset training to your
-              employees or community — we have a dedicated offering built for
+              employees or community. We have a dedicated offering built for
               you.
             </p>
           </div>

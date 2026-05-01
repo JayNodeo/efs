@@ -28,13 +28,13 @@ export default function CentralIdea() {
             <p className="font-serif italic text-[18px] md:text-[20px] leading-[1.55] text-ink/80">
               "AI is not killing jobs. It is killing the gap between having an
               idea and shipping it. The organizations that win will be the ones
-              whose people know how to build — not just use tools."
+              whose people know how to build, not just use tools."
             </p>
           </blockquote>
 
           <p className="mt-10 text-[14px] text-muted leading-[1.65] max-w-[560px] mx-auto">
             Emerging Founder School is designed around one belief: building is a
-            skill anyone can learn — and your organization already has the
+            skill anyone can learn, and your organization already has the
             people who can do it. Every session, every sprint, every peer
             conversation is engineered to move your teams from identifying
             problems to shipping solutions with entrepreneurial urgency.

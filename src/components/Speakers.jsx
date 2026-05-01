@@ -23,12 +23,24 @@ const featured = [
     title: "Serial Business Builder · Exited Founder · Former CEO",
     bio: "For 20 years, Heidi has built, bootstrapped, scaled, and exited companies across B2B SaaS, IRL experiences, arts & entertainment, and D2C retail. She launched her first venture at 11, grew a global multi-million-dollar Inc. 5000 Fastest Growing Company, authored an Amazon Bestselling book, and has since worked with hundreds of founders to launch, streamline, or rescue their businesses. Known as the \u201cMarie Kondo of Small Business.\u201d",
   },
-];
-
-const alsoFeaturing = [
-  { name: "Brian Nichols", role: "Co-founder, Angel Squad" },
-  { name: "Katie Nowak", role: "Angel Squad Member · Director" },
-  { name: "Nate Andorsky", role: "Angel Squad Member · Founder" },
+  {
+    name: "Brian Nichols",
+    photo: "/speakers/brian-nichols.jpg",
+    title: "Founder, Angel Squad · Hustle Fund",
+    bio: "Brian leads Angel Squad at Hustle Fund, a community of 2,000+ professionals learning how to angel invest, called the \u201cYC of Angel Investing\u201d by TechCrunch. He started at Lyft, co-founded its employee investing syndicate ($30M+ deployed across 300+ employees), and went on to help Airbnb, Square, Pinterest, and Stripe build similar alumni investing communities. He also writes Small Bets, a weekly newsletter on startups and angel investing.",
+  },
+  {
+    name: "Katie Nowak",
+    photo: "/speakers/katie-nowak.jpg",
+    title: "Founder & CEO, Kanvas · Principal, Altra Venture Partners",
+    bio: "Katie is the Founder & CEO of Kanvas, a strategy firm helping startups and Fortune 500s build continuous-innovation moats. She is also Principal and Director of Investor Relations at Altra Venture Partners, a secondaries-focused growth fund with stakes in Anduril, Anthropic, Canva, CoreWeave, and Webflow. Earlier she drove strategy at Better.com through hyper-growth and consulted at Deloitte and PwC; today she mentors founders through Techstars, the Venture Mentoring Team, and Plug and Play Korea.",
+  },
+  {
+    name: "Nate Andorsky",
+    photo: "/speakers/nate-andorsky.jpg",
+    title: "Founder & CEO, ForesightIQ · Author, Decoding the Why",
+    bio: "Nate is a serial entrepreneur and the founder of ForesightIQ, a competitive intelligence platform that surfaces the hidden signals (hiring trends, API changes, product doc updates) competitors leave behind, helping strategy and corp dev teams anticipate moves months before they hit the news. He previously bootstrapped a company onto the Inc. 5000 list and has advised startups across SaaS, fintech, and consumer tech. He invests in underrepresented founders through W Fund and Hustle Fund\u2019s Angel Squad, and authored Decoding the Why, an Amazon best-seller on behavioral science in product design and growth.",
+  },
 ];
 
 export default function Speakers() {
@@ -55,7 +67,7 @@ export default function Speakers() {
           viewport={{ once: true }}
           className="text-[14px] text-muted leading-[1.65] max-w-[580px] mb-5"
         >
-          Curriculum built by active Angel Squad members — investors, founders,
+          Curriculum built by active Angel Squad members: investors, founders,
           and operators sharing the real frameworks they use. Backed by friends
           of Angel Squad, who host SPVs for 3–5 deals a month.
         </motion.p>
@@ -91,33 +103,6 @@ export default function Speakers() {
               </div>
             </motion.div>
           ))}
-
-          <motion.div
-            variants={fadeUp}
-            className="flat-card rounded-xl px-5 py-4 md:px-6"
-          >
-            <p className="text-[11px] font-medium uppercase tracking-[0.07em] text-gold mb-2">
-              Also featuring
-            </p>
-            <ul className="flex flex-col">
-              {alsoFeaturing.map((p, i) => (
-                <li
-                  key={p.name}
-                  className={`flex flex-wrap items-baseline gap-x-2.5 py-2 ${
-                    i < alsoFeaturing.length - 1
-                      ? "border-b border-[#dddbd3]"
-                      : ""
-                  }`}
-                >
-                  <span className="text-[14px] font-medium text-ink">
-                    {p.name}
-                  </span>
-                  <span className="text-[#dddbd3]">·</span>
-                  <span className="text-[12px] text-subtle">{p.role}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
         </motion.div>
       </div>
     </section>

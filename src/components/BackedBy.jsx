@@ -46,7 +46,7 @@ export default function BackedBy() {
               Angel Squad is a community of 2,000+ angels investing alongside
               Hustle Fund into 500+ companies and counting. The Emerging
               Founder School curriculum is built from the same frameworks
-              used to evaluate real companies — now handed to your team.
+              used to evaluate real companies, now handed to your team.
             </p>
             <p className="mt-3 text-[11px] text-subtle leading-[1.5]">
               * Instructors are experienced practitioners and investors

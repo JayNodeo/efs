@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-[860px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-subtle">
           <p>
-            &copy; Hustle Fund™ · 1180 San Carlos Ave, Suite 337, San Carlos CA 94070
+            &copy; Angel Squad · 1180 San Carlos Ave, Suite 337, San Carlos CA 94070
           </p>
           <div className="flex items-center gap-5">
             <Link
@@ -16,12 +16,12 @@ export default function Footer() {
               Founder Program
             </Link>
             <a
-              href="https://hustlefund.vc"
+              href="https://www.angelsquad.co"
               target="_blank"
               rel="noreferrer"
               className="hover:text-ink transition-colors"
             >
-              hustlefund.vc
+              angelsquad.co
             </a>
           </div>
         </div>

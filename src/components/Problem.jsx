@@ -19,7 +19,7 @@ const cards = [
       </svg>
     ),
     title: "AI tool training is not enough",
-    body: "Your teams can prompt ChatGPT, but few can evaluate emerging capabilities, architect AI-native workflows, or decide where AI creates genuine leverage versus noise.",
+    body: "Your teams can prompt ChatGPT. Few can architect AI-native workflows or judge where AI creates real leverage.",
   },
   {
     icon: (
@@ -29,7 +29,7 @@ const cards = [
       </svg>
     ),
     title: "Innovation programs stay siloed",
-    body: "Internal accelerators and design thinking workshops rarely connect to real capital allocation decisions. They reach a handpicked few and stay disconnected from core operations.",
+    body: "Accelerators and design-thinking workshops reach a handpicked few and rarely shape where the company actually invests.",
   },
   {
     icon: (
@@ -38,8 +38,8 @@ const cards = [
         <path d="M8 7V10" stroke="#BA7517" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
-    title: "The gap is not tools or ideas — it's both",
-    body: "AI fluency without the builder mindset produces employees who can use powerful tools but cannot decide what to build with them. The missing piece is integration.",
+    title: "The gap is not tools or ideas; it's both",
+    body: "Tools without the builder mindset create users who can wield AI but can't decide what to build. Integration is the missing piece.",
   },
 ];
 
