@@ -95,6 +95,21 @@ export default function Speakers() {
   const goPrev = () => scrollToIndex(Math.max(0, activeIndex - 1));
   const goNext = () => scrollToIndex(Math.min(featured.length - 1, activeIndex + 1));
 
+  // Autoplay: advance every 5s, wrap to 0 after the last slide.
+  // Index is computed from scrollLeft so the tick is independent of observer
+  // churn during smooth scroll.
+  useEffect(() => {
+    const id = setInterval(() => {
+      const root = scrollRef.current;
+      if (!root) return;
+      const cardWidth = root.clientWidth || 1;
+      const current = Math.round(root.scrollLeft / cardWidth);
+      const next = (current + 1) % featured.length;
+      scrollToIndex(next);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [scrollToIndex]);
+
   return (
     <section className="bg-cream px-4 py-8">
       <div className="max-w-[860px] mx-auto">
