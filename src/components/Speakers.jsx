@@ -1,13 +1,9 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const featured = [
@@ -43,7 +39,62 @@ const featured = [
   },
 ];
 
+function ArrowButton({ direction, onClick, disabled, label }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={label}
+      className="w-9 h-9 rounded-full border border-[#dddbd3] bg-white flex items-center justify-center text-ink hover:bg-ink hover:text-cream hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-ink disabled:hover:border-[#dddbd3] transition-colors"
+    >
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        {direction === "prev" ? (
+          <path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        ) : (
+          <path d="M5 2L10 7L5 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        )}
+      </svg>
+    </button>
+  );
+}
+
 export default function Speakers() {
+  const scrollRef = useRef(null);
+  const itemRefs = useRef([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Update active index based on which slide is most visible
+  useEffect(() => {
+    const root = scrollRef.current;
+    if (!root) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Pick the entry with the largest intersection ratio
+        const best = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (best) {
+          const idx = Number(best.target.getAttribute("data-index"));
+          if (!Number.isNaN(idx)) setActiveIndex(idx);
+        }
+      },
+      { root, threshold: [0.5, 0.75, 1] }
+    );
+    itemRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToIndex = useCallback((idx) => {
+    const target = itemRefs.current[idx];
+    if (target && scrollRef.current) {
+      target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+    }
+  }, []);
+
+  const goPrev = () => scrollToIndex(Math.max(0, activeIndex - 1));
+  const goNext = () => scrollToIndex(Math.min(featured.length - 1, activeIndex + 1));
+
   return (
     <section className="bg-cream px-4 py-8">
       <div className="max-w-[860px] mx-auto">
@@ -58,6 +109,9 @@ export default function Speakers() {
             Featured speakers
           </h2>
           <div className="section-rule" />
+          <span className="text-[12px] text-subtle whitespace-nowrap">
+            {activeIndex + 1} / {featured.length}
+          </span>
         </motion.div>
 
         <motion.p
@@ -73,36 +127,79 @@ export default function Speakers() {
         </motion.p>
 
         <motion.div
-          variants={staggerContainer}
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex flex-col gap-3"
         >
-          {featured.map((s) => (
-            <motion.div
-              key={s.name}
-              variants={fadeUp}
-              className="flat-card rounded-xl p-5 md:p-6 flex gap-4 md:gap-6 items-start"
-            >
-              <img
-                src={s.photo}
-                alt={s.name}
-                className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0"
+          <div
+            ref={scrollRef}
+            className="scroll-snap-x overflow-x-auto -mx-4 px-4 pb-2 hide-scrollbar"
+            style={{ scrollbarWidth: "none" }}
+          >
+            <div className="flex gap-3">
+              {featured.map((s, i) => (
+                <div
+                  key={s.name}
+                  ref={(el) => (itemRefs.current[i] = el)}
+                  data-index={i}
+                  className="flat-card rounded-xl p-5 md:p-6 flex gap-4 md:gap-6 items-start min-w-full"
+                  style={{ scrollSnapAlign: "start" }}
+                >
+                  <img
+                    src={s.photo}
+                    alt={s.name}
+                    className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover flex-shrink-0"
+                  />
+                  <div className="min-w-0">
+                    <p className="text-[15px] font-medium text-ink mb-0.5">
+                      {s.name}
+                    </p>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.05em] text-gold mb-2">
+                      {s.title}
+                    </p>
+                    <p className="text-[13px] text-muted leading-[1.65]">
+                      {s.bio}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Controls */}
+          <div className="mt-4 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-1.5">
+              {featured.map((s, i) => (
+                <button
+                  key={s.name}
+                  type="button"
+                  onClick={() => scrollToIndex(i)}
+                  aria-label={`Go to ${s.name}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === activeIndex
+                      ? "w-6 bg-ink"
+                      : "w-1.5 bg-[#dddbd3] hover:bg-subtle"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <ArrowButton
+                direction="prev"
+                onClick={goPrev}
+                disabled={activeIndex === 0}
+                label="Previous speaker"
               />
-              <div className="min-w-0">
-                <p className="text-[15px] font-medium text-ink mb-0.5">
-                  {s.name}
-                </p>
-                <p className="text-[11px] font-medium uppercase tracking-[0.05em] text-gold mb-2">
-                  {s.title}
-                </p>
-                <p className="text-[13px] text-muted leading-[1.65]">
-                  {s.bio}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              <ArrowButton
+                direction="next"
+                onClick={goNext}
+                disabled={activeIndex === featured.length - 1}
+                label="Next speaker"
+              />
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
