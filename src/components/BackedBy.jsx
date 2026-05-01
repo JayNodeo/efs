@@ -49,17 +49,18 @@ export default function BackedBy() {
               Your instructors
             </p>
             <h2 className="font-serif text-[1.5rem] font-bold text-ink leading-tight mb-3">
-              Backed by instructors who've seen 1,000+ deals a month
+              Built by the people building the world's most innovative companies
             </h2>
             <p className="text-[14px] text-muted leading-[1.65]">
-              Angel Squad is a community of 2,000+ angels investing alongside
-              Hustle Fund into 500+ companies and counting. The Emerging
-              Founder School curriculum is built from the same frameworks
-              used to evaluate real companies, now handed to your team.
+              Angel Squad is a community of 2,000+ operators, founders, and
+              investors shaping 500+ category-defining companies. The
+              Emerging Founder School curriculum captures the frameworks they
+              use to spot opportunity, validate ideas, and ship, now handed
+              directly to your team.
             </p>
             <p className="mt-3 text-[11px] text-subtle leading-[1.5]">
-              * Instructors are experienced practitioners and investors
-              affiliated with Angel Squad and Hustle Fund.
+              * Instructors are operators, founders, and investors affiliated
+              with Angel Squad and Hustle Fund.
             </p>
           </div>
 
