@@ -113,11 +113,23 @@ const testimonials = [
 const portfolio = [
   {
     name: "Contra",
+    logo: "/portfolio/contra.png",
+    logoClass: "h-12 -my-2",
+    url: "https://contra.com/",
     desc: "Exclusive professional communities for independent work",
   },
-  { name: "Flex", desc: "Fintech superapp for SMBs" },
+  {
+    name: "Flex",
+    logo: "/portfolio/flex.svg",
+    logoClass: "h-5",
+    url: "https://www.flex.one/",
+    desc: "Fintech superapp for SMBs",
+  },
   {
     name: "Rupa Health",
+    logo: "/portfolio/rupa-health.png",
+    logoClass: "h-5",
+    url: "https://www.rupahealth.com/",
     desc: "Personalized, data-driven, root-cause medicine",
   },
 ];
@@ -401,9 +413,21 @@ function Portfolio() {
               variants={fadeUp}
               className="flat-card rounded-lg px-4 py-3 flex items-start justify-between gap-3"
             >
-              <div className="flex-1">
-                <p className="text-[14px] font-medium text-ink">{p.name}</p>
-                <p className="text-[12px] text-subtle leading-[1.4] mt-0.5">
+              <div className="flex-1 min-w-0">
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Visit ${p.name}`}
+                  className="inline-block hover:opacity-70 transition-opacity"
+                >
+                  <img
+                    src={p.logo}
+                    alt={p.name}
+                    className={`${p.logoClass} w-auto object-contain`}
+                  />
+                </a>
+                <p className="text-[12px] text-subtle leading-[1.4] mt-1.5">
                   {p.desc}
                 </p>
               </div>
