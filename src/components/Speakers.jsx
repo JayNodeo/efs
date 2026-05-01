@@ -122,8 +122,7 @@ export default function Speakers() {
           className="text-[14px] text-muted leading-[1.65] max-w-[580px] mb-5"
         >
           Curriculum built by active Angel Squad members: investors, founders,
-          and operators sharing the real frameworks they use. Backed by friends
-          of Angel Squad, who host SPVs for 3–5 deals a month.
+          and operators sharing the real frameworks they use.
         </motion.p>
 
         <motion.div
