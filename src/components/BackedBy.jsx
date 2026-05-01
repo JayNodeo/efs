@@ -9,7 +9,7 @@ const portfolio = [
   {
     name: "Contra",
     logo: "/portfolio/contra.png",
-    logoClass: "h-12 -my-2",
+    logoClass: "h-8",
     url: "https://contra.com/",
     desc: "Exclusive professional communities for independent work",
     badge: "Angel Squad",
@@ -17,7 +17,7 @@ const portfolio = [
   {
     name: "Flex",
     logo: "/portfolio/flex.svg",
-    logoClass: "h-5",
+    logoClass: "h-6",
     url: "https://www.flex.one/",
     desc: "Fintech superapp for SMBs",
     badge: "Angel Squad",
@@ -25,7 +25,7 @@ const portfolio = [
   {
     name: "Rupa Health",
     logo: "/portfolio/rupa-health.png",
-    logoClass: "h-5",
+    logoClass: "h-8",
     url: "https://www.rupahealth.com/",
     desc: "Personalized, data-driven, root-cause medicine",
     badge: "Angel Squad",
