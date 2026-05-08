@@ -164,7 +164,7 @@ function FoundersHero() {
 
           <h1 className="mt-6 font-serif text-4xl md:text-5xl lg:text-[3.2rem] font-black leading-[1.05] tracking-tight text-ink max-w-[640px]">
             The next great company starts with someone who decided to{" "}
-            <em className="font-serif italic font-black text-gold">build.</em>
+            <em className="font-serif italic font-black text-brand-red">build.</em>
           </h1>
 
           <p className="mt-4 text-[12px] font-medium uppercase tracking-[0.08em] text-subtle">
@@ -182,7 +182,7 @@ function FoundersHero() {
               href={ENROLL_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-gold text-near-black text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-orange text-near-black text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-brand-orange/90 transition-colors"
             >
               Enroll now →
             </a>
@@ -465,12 +465,12 @@ function FoundersCTA() {
             href={ENROLL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 bg-gold text-near-black text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-brand-orange text-near-black text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-brand-orange/90 transition-colors"
           >
             Start learning for $99 →
           </a>
           <div className="mt-5 inline-flex items-center gap-2 text-[12px] text-subtle">
-            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gold">
+            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-brand-yellow">
               <svg
                 width="8"
                 height="8"
@@ -504,7 +504,7 @@ function CorporateCallout() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flat-card rounded-xl px-6 py-5 md:px-8 md:py-6 flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 justify-between"
+          className="rounded-xl px-6 py-5 md:px-8 md:py-6 bg-brand-purple-tint border border-brand-purple flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 justify-between"
         >
           <div className="flex-1 min-w-0">
             <p className="font-serif text-[17px] font-bold text-ink mb-1">
@@ -519,7 +519,7 @@ function CorporateCallout() {
           </div>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 border border-ink text-ink text-[13px] font-medium px-4 py-2.5 rounded-lg hover:bg-ink hover:text-cream transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-2 bg-brand-purple text-ink text-[13px] font-medium px-4 py-2.5 rounded-lg hover:bg-brand-purple/85 transition-colors whitespace-nowrap"
           >
             Explore corporate track →
           </Link>

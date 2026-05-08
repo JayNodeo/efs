@@ -21,7 +21,7 @@ export default function Hero() {
           {/* Headline */}
           <h1 className="mt-6 font-serif text-4xl md:text-5xl lg:text-[3.2rem] font-black leading-[1.05] tracking-tight text-ink max-w-[620px]">
             Equip your team for{" "}
-            <em className="font-serif italic font-black text-gold">the age of AI.</em>
+            <em className="font-serif italic font-black text-brand-red">the age of AI.</em>
           </h1>
 
           {/* Small label */}
@@ -41,7 +41,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#apply"
-              className="inline-flex items-center gap-2 bg-gold text-near-black text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-orange text-near-black text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-brand-orange/90 transition-colors"
             >
               Request a pilot →
             </a>

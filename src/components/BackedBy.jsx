@@ -45,7 +45,7 @@ export default function BackedBy() {
           style={{ background: "#F5F4F0" }}
         >
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.08em] text-gold mb-2">
+            <p className="text-[11px] font-medium uppercase tracking-[0.08em] text-brand-orange mb-2">
               Your instructors
             </p>
             <h2 className="font-serif text-[1.5rem] font-bold text-ink leading-tight mb-3">

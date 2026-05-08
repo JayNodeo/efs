@@ -43,8 +43,8 @@ function PartCard({ part, capstone }) {
   return (
     <motion.div
       variants={fadeUp}
-      className={`rounded-xl p-5 ${capstone ? "flat-card border-gold/60" : "flat-card"}`}
-      style={capstone ? { border: "0.5px solid #BA7517" } : undefined}
+      className={`rounded-xl p-5 ${capstone ? "flat-card border-brand-yellow/60" : "flat-card"}`}
+      style={capstone ? { border: "0.5px solid var(--color-brand-orange)" } : undefined}
     >
       <span className="amber-tag">{part.label}</span>
       <p className="mt-3 font-serif text-[16px] font-bold text-ink leading-snug">
@@ -104,7 +104,7 @@ export default function Program() {
           </p>
           <Link
             to="/curriculum"
-            className="inline-flex items-center gap-2 bg-gold text-near-black text-[13px] font-medium px-5 py-2.5 rounded-lg hover:bg-gold/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-brand-orange text-near-black text-[13px] font-medium px-5 py-2.5 rounded-lg hover:bg-brand-orange/90 transition-colors"
           >
             Explore the full curriculum →
           </Link>

@@ -42,7 +42,7 @@ export default function TheShift() {
               Employee mentality
             </p>
             <div className="w-6" />
-            <p className="text-[11px] uppercase tracking-wider text-gold font-medium">
+            <p className="text-[11px] uppercase tracking-wider text-brand-orange font-medium">
               Builder mentality
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function TheShift() {
               }`}
             >
               <p className="text-right text-[14px] text-subtle">{shift.employee}</p>
-              <span className="text-gold text-sm">→</span>
+              <span className="text-brand-orange text-sm">→</span>
               <p className="text-[14px] font-medium text-ink">{shift.builder}</p>
             </div>
           ))}
@@ -70,7 +70,7 @@ export default function TheShift() {
         >
           <p className="text-[15px] text-ink leading-relaxed">
             EFS doesn't just teach your people what to build.{" "}
-            <span className="font-serif italic text-gold">It rewires how they think.</span>
+            <span className="font-serif italic text-brand-red">It rewires how they think.</span>
           </p>
         </motion.div>
       </div>

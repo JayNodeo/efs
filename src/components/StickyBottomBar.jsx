@@ -26,7 +26,7 @@ export default function StickyBottomBar({
         <a
           href={ctaHref}
           {...(ctaExternal ? { target: "_blank", rel: "noreferrer" } : {})}
-          className="bg-gold text-near-black text-[13px] font-medium px-5 py-2.5 rounded-lg hover:bg-gold/90 transition-colors ml-auto sm:ml-0"
+          className="bg-brand-orange text-near-black text-[13px] font-medium px-5 py-2.5 rounded-lg hover:bg-brand-orange/90 transition-colors ml-auto sm:ml-0"
         >
           {ctaLabel}
         </a>

@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors (preserved) */
+  /* Brand palette */
+  --color-brand-yellow: #F4CA66;
+  --color-brand-orange: #E88149;
+  --color-brand-red: #D75856;
+  --color-brand-purple: #ADA1ED;
+  --color-brand-purple-tint: #EDEAFB;
+
+  /* Legacy brand tokens (kept for backwards compat) */
   --color-purple-dark: #3D1F6E;
   --color-purple-mid: #6B4FBB;
   --color-purple-light: #EDE8F8;
@@ -67,12 +74,12 @@ body {
   border: 0.5px solid var(--color-border);
 }
 
-/* Eyebrow pill: gold badge with dot */
+/* Eyebrow pill: yellow badge with red dot */
 .eyebrow-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--color-gold);
+  background: var(--color-brand-yellow);
   color: #412402;
   font-size: 11px;
   font-weight: 600;
@@ -86,7 +93,7 @@ body {
   content: "";
   width: 6px;
   height: 6px;
-  background: #BA7517;
+  background: var(--color-brand-red);
   border-radius: 50%;
 }
 
@@ -130,7 +137,7 @@ body {
 
 .arrow-list li::before {
   content: "→";
-  color: var(--color-gold);
+  color: var(--color-brand-orange);
   font-size: 12px;
   flex-shrink: 0;
   margin-top: 1px;

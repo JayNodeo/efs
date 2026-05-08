@@ -176,7 +176,7 @@ export default function Speakers() {
                     <p className="text-[15px] font-medium text-ink mb-0.5">
                       {s.name}
                     </p>
-                    <p className="text-[11px] font-medium uppercase tracking-[0.05em] text-gold mb-2">
+                    <p className="text-[11px] font-medium uppercase tracking-[0.05em] text-brand-orange mb-2">
                       {s.title}
                     </p>
                     <p className="text-[13px] text-muted leading-[1.65]">

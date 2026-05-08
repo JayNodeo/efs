@@ -104,7 +104,7 @@ function SessionRow({ session }) {
             {session.title}
           </p>
           {session.speaker && (
-            <p className="mt-0.5 text-[12px] text-gold font-medium">
+            <p className="mt-0.5 text-[12px] text-brand-orange font-medium">
               With {session.speaker}
             </p>
           )}
@@ -146,7 +146,7 @@ export default function Curriculum() {
 
             <h1 className="mt-5 font-serif text-3xl md:text-[2.6rem] lg:text-[3rem] font-black leading-[1.1] tracking-tight text-ink max-w-[620px]">
               From idea to{" "}
-              <em className="font-serif italic font-black text-gold">inevitable.</em>
+              <em className="font-serif italic font-black text-brand-red">inevitable.</em>
             </h1>
 
             <p className="mt-4 text-[15px] leading-[1.65] text-muted max-w-[560px]">
@@ -244,7 +244,7 @@ export default function Curriculum() {
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="/#apply"
-                className="inline-flex items-center gap-2 bg-gold text-near-black text-[14px] font-medium px-6 py-3 rounded-lg hover:bg-gold/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-brand-orange text-near-black text-[14px] font-medium px-6 py-3 rounded-lg hover:bg-brand-orange/90 transition-colors"
               >
                 Request a pilot →
               </a>

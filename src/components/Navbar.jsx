@@ -29,7 +29,7 @@ export default function Navbar() {
 
         <a
           href="#apply"
-          className="bg-gold text-near-black text-[13px] font-medium tracking-wide px-5 py-2 rounded-lg hover:bg-gold/90 transition-colors"
+          className="bg-brand-orange text-near-black text-[13px] font-medium tracking-wide px-5 py-2 rounded-lg hover:bg-brand-orange/90 transition-colors"
         >
           Get Started →
         </a>

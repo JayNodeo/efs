@@ -95,7 +95,7 @@ export default function Problem() {
         >
           <p className="text-ink font-medium text-[15px] leading-relaxed italic">
             AI is compressing the gap between idea and execution.{" "}
-            <span className="font-serif italic text-gold">The employees who thrive will think like builders.</span>
+            <span className="font-serif italic text-brand-red">The employees who thrive will think like builders.</span>
           </p>
         </motion.div>
       </div>

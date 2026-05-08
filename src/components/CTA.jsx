@@ -19,7 +19,7 @@ export default function CTA() {
         >
           <h2 className="font-serif text-[1.8rem] md:text-[2.2rem] font-bold leading-[1.15] text-ink max-w-[600px] mx-auto">
             Transform how your organization{" "}
-            <em className="font-serif italic font-bold text-gold">builds.</em>
+            <em className="font-serif italic font-bold text-brand-red">builds.</em>
           </h2>
 
           <p className="mt-4 text-[15px] leading-[1.6] text-muted max-w-[460px] mx-auto">
@@ -30,7 +30,7 @@ export default function CTA() {
           <div className="mt-8">
             <a
               href="#"
-              className="inline-flex items-center gap-2 bg-gold text-near-black text-[15px] font-medium px-7 py-3 rounded-lg hover:bg-gold/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-orange text-near-black text-[15px] font-medium px-7 py-3 rounded-lg hover:bg-brand-orange/90 transition-colors"
             >
               Request a pilot →
             </a>
