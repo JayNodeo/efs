@@ -24,7 +24,8 @@ export default function CTA() {
 
           <p className="mt-4 text-[15px] leading-[1.6] text-muted max-w-[460px] mx-auto">
             Cohort spots are limited. Talk to us about equipping your team
-            with the builder mindset.
+            with the builder mindset, operating cadence, and AI-native skills
+            to turn ideas into real business outcomes.
           </p>
 
           <div className="mt-8">

@@ -11,50 +11,48 @@ const staggerContainer = {
   visible: { transition: { staggerChildren: 0.05 } },
 };
 
-const partOne = {
-  label: "Part One",
-  subtitle: "The Spirit of the Builder",
-  description: "Identity, operating discipline, problem clarity, and the fundamentals of bringing an idea to life.",
+const builderCurriculum = {
+  label: "Builder Curriculum",
+  subtitle: "For ICs and domain experts",
+  description: "The mindset and methods for finding real pain, validating demand, and turning insight into useful work.",
   sessions: [
     "Orientation + Builder Identity",
     "The Builder Operating System",
     "Problem Discovery & Builder-Market Fit",
     "Customer Discovery",
     "Marketing",
-    "Sales as a Distinct Skill",
-    "Building as Risk Management",
   ],
 };
 
-const partTwo = {
-  label: "Part Two",
-  subtitle: "The Builder's Case",
-  description: "Packaging your idea, building your evidence, and pitching the people who control the resources.",
+const operatorCurriculum = {
+  label: "Operator Curriculum",
+  subtitle: "For managers and team leads",
+  description: "How to turn scattered company execution into an AI-readable operating system, so humans spend less time chasing status and more time making judgment calls.",
   sessions: [
-    "Building Your Case",
-    "Pitching Inside",
-    "Navigating Power & Managing Your Sponsor",
-    "The Hard Stuff",
-    "Graduation",
+    "AI As Operating System, Not Tool",
+    "Make The Company Queryable",
+    "Operating Truth Graph",
+    "Closed Loops Everywhere",
+    "No Human Middleware",
   ],
 };
 
-function PartCard({ part, capstone }) {
+function CurriculumCard({ curriculum, capstone }) {
   return (
     <motion.div
       variants={fadeUp}
       className={`rounded-xl p-5 ${capstone ? "flat-card border-brand-yellow/60" : "flat-card"}`}
       style={capstone ? { border: "0.5px solid var(--color-brand-orange)" } : undefined}
     >
-      <span className="amber-tag">{part.label}</span>
+      <span className="amber-tag">{curriculum.label}</span>
       <p className="mt-3 font-serif text-[16px] font-bold text-ink leading-snug">
-        {part.subtitle}
+        {curriculum.subtitle}
       </p>
       <p className="mt-2 text-[12px] text-subtle leading-[1.5]">
-        {part.description}
+        {curriculum.description}
       </p>
       <ul className="arrow-list mt-4">
-        {part.sessions.map((s) => (
+        {curriculum.sessions.map((s) => (
           <li key={s}>{s}</li>
         ))}
       </ul>
@@ -74,10 +72,10 @@ export default function Program() {
           className="flex items-baseline gap-3 mb-4"
         >
           <h2 className="font-serif text-[1.4rem] font-bold text-ink whitespace-nowrap">
-            What's inside
+            The EFS method
           </h2>
           <div className="section-rule" />
-          <span className="text-[12px] text-subtle whitespace-nowrap">12 sessions · two parts</span>
+          <span className="text-[12px] text-subtle whitespace-nowrap">builder track · operator track</span>
         </motion.div>
 
         <motion.div
@@ -87,8 +85,8 @@ export default function Program() {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-3"
         >
-          <PartCard part={partOne} />
-          <PartCard part={partTwo} capstone />
+          <CurriculumCard curriculum={builderCurriculum} />
+          <CurriculumCard curriculum={operatorCurriculum} capstone />
         </motion.div>
 
         <motion.div
@@ -99,14 +97,15 @@ export default function Program() {
           className="mt-6 flex flex-wrap items-center justify-between gap-3"
         >
           <p className="text-[13px] text-subtle max-w-md">
-            Sessions blend async video lessons with live group workshops.
-            Complete at your own pace with weekly deadlines.
+            Not another AI tools workshop. EFS combines founder frameworks,
+            hands-on sprints, AI workflows, live feedback, and real
+            deliverables tied to your business.
           </p>
           <Link
             to="/curriculum"
             className="inline-flex items-center gap-2 bg-brand-orange text-near-black text-[13px] font-medium px-5 py-2.5 rounded-lg hover:bg-brand-orange/90 transition-colors"
           >
-            Explore the full curriculum →
+            Explore the full program →
           </Link>
         </motion.div>
       </div>

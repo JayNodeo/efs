@@ -19,7 +19,7 @@ const cards = [
       </svg>
     ),
     title: "AI tool training is not enough",
-    body: "Your teams can prompt ChatGPT. Few can architect AI-native workflows or judge where AI creates real leverage.",
+    body: "Your teams may know how to prompt ChatGPT. Few know how to architect AI-native workflows inside a structured method for identifying problems, testing ideas, and shipping useful work.",
   },
   {
     icon: (
@@ -28,8 +28,8 @@ const cards = [
         <path d="M5 7h6M5 10h4" stroke="#BA7517" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
-    title: "Innovation programs stay siloed",
-    body: "Accelerators and design-thinking workshops reach a handpicked few and rarely shape where the company actually invests.",
+    title: "Ideas get stuck before they ship",
+    body: "Employees see problems and opportunities every day. Most never become tested, funded, or adopted because the organization lacks the skills for turning insight into action. EFS gives them the process, pressure, and feedback to move from insight to tested work.",
   },
   {
     icon: (
@@ -38,8 +38,8 @@ const cards = [
         <path d="M8 7V10" stroke="#BA7517" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
-    title: "The gap is not tools or ideas; it's both",
-    body: "Tools without the builder mindset create users who can wield AI but can't decide what to build. Integration is the missing piece.",
+    title: "Building requires cadence",
+    body: "AI creates speed, but teams still need cadence: clear priorities, real deliverables, feedback, accountability, and a path from experiment to adoption.",
   },
 ];
 
@@ -94,8 +94,8 @@ export default function Problem() {
           className="mt-6 flat-card rounded-xl px-6 py-5 text-center"
         >
           <p className="text-ink font-medium text-[15px] leading-relaxed italic">
-            AI is compressing the gap between idea and execution.{" "}
-            <span className="font-serif italic text-brand-red">The employees who thrive will think like builders.</span>
+            AI is changing how companies build, sell, and operate.{" "}
+            <span className="font-serif italic text-brand-red">The teams that thrive will know how to turn ideas into tested work in weeks, not quarters.</span>
           </p>
         </motion.div>
       </div>

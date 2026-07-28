@@ -31,10 +31,10 @@ export default function Hero() {
 
           {/* Subhead */}
           <p className="mt-4 text-[16px] leading-[1.65] text-muted max-w-[520px]">
-            A 12-session program that gives your workforce the same builder
-            frameworks venture-backed founders use (problem discovery,
-            customer validation, and shipping under pressure), applied to
-            your business.
+            An AI-native building program for teams. Builders learn to turn
+            real business problems into tested solutions. Operators learn to
+            turn scattered company execution into an AI-readable operating
+            system.
           </p>
 
           {/* CTAs */}
@@ -49,7 +49,7 @@ export default function Hero() {
               href="#program"
               className="inline-flex items-center gap-2 border border-ink text-ink text-[15px] font-medium px-6 py-3 rounded-lg hover:bg-ink hover:text-cream transition-colors"
             >
-              Explore the curriculum
+              Explore the program
             </a>
           </div>
 
@@ -59,8 +59,8 @@ export default function Hero() {
           {/* Stats */}
           <div className="flex flex-wrap gap-10">
             <div>
-              <p className="font-serif text-[1.6rem] font-bold text-ink leading-none">12</p>
-              <p className="mt-1 text-xs text-subtle">core sessions</p>
+              <p className="font-serif text-[1.6rem] font-bold text-ink leading-none">2</p>
+              <p className="mt-1 text-xs text-subtle">role-based tracks</p>
             </div>
             <div>
               <p className="font-serif text-[1.6rem] font-bold text-ink leading-none">2,000+</p>
