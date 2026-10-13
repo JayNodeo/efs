@@ -1,0 +1,100 @@
+<dialog id="efs-donation-dialog" aria-labelledby="efs-donation-title">
+  <button type="button" class="efs-donation-close" aria-label="Close donation screen">×</button>
+  <p class="efs-donation-eyebrow">EMERGING FOUNDER SCHOOL · FOUNDER TRACK</p>
+  <h2 id="efs-donation-title">Help the next founder get started.</h2>
+  <p>We suggest a $99 donation to support Emerging Founder School. Choose another amount on Givinga, or continue without donating. The course is available either way.</p>
+  <form id="efs-registration-form">
+    <p class="efs-donation-note">First, register with your name and email. Registration is required whether or not you donate.</p>
+    <label for="efs-registration-name">Full name</label>
+    <input id="efs-registration-name" name="name" type="text" autocomplete="name" maxlength="120" required>
+    <label for="efs-registration-email">Email address</label>
+    <input id="efs-registration-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+    <div class="efs-registration-trap" aria-hidden="true"><label for="efs-registration-website">Leave this field empty</label><input id="efs-registration-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+    <p class="efs-donation-note">Your name and email will be saved by the EFS team in Airtable to record your registration.</p>
+    <p id="efs-registration-error" role="alert" hidden></p>
+    <button class="efs-donation-primary" id="efs-registration-submit" type="submit">Save and continue</button>
+    <p id="efs-registration-status" class="efs-donation-note" role="status" aria-live="polite"></p>
+  </form>
+  <div id="efs-donation-options" hidden>
+    <p class="efs-donation-note" id="efs-registration-success" tabindex="-1">You’re registered. Choose how you’d like to continue.</p>
+    <a class="efs-donation-primary" id="efs-givinga-link" href="https://emergingfounderschool.givingafoundation.tech/p/donate?slug=founder-track" target="_blank" rel="noopener noreferrer">Donate through Givinga ↗</a>
+    <p class="efs-donation-note">Givinga opens in a new tab. After donating, return here and select “Continue to the course.”</p>
+    <a class="efs-donation-continue" href="https://hustlefund.journey.io/p/1f47589f1a2c41a1a31851034a0feab6">Continue to the course</a>
+    <a class="efs-donation-skip" href="https://hustlefund.journey.io/p/1f47589f1a2c41a1a31851034a0feab6">Continue without donating</a>
+    <p class="efs-donation-note">Already donated or returning to learn? Continue without donating.</p>
+  </div>
+</dialog>
+<style>
+#efs-donation-dialog{box-sizing:border-box;width:calc(100% - 32px);max-width:560px;max-height:90dvh;overflow:auto;margin:auto;padding:40px 32px 28px;border:1px solid #252525;border-radius:12px;background:#fbf9f3;color:#242424;font-family:inherit;box-shadow:0 20px 60px #0003}
+#efs-donation-dialog::backdrop{background:#1f1f1faa;backdrop-filter:blur(4px)}
+#efs-donation-dialog [hidden]{display:none!important}
+#efs-donation-dialog h2{font-size:30px;line-height:1.15;margin:12px 0 18px;color:#242424}
+#efs-donation-dialog p{font-size:16px;line-height:1.5;margin:12px 0 20px}
+#efs-donation-dialog .efs-donation-eyebrow{font-size:11px;letter-spacing:.08em;margin-right:24px}
+#efs-donation-dialog .efs-donation-close{position:absolute;right:12px;top:12px;background:transparent;color:#242424;border:0;width:36px;height:36px;font-size:28px;cursor:pointer}
+#efs-donation-dialog a,#efs-donation-dialog .efs-donation-primary{box-sizing:border-box;display:block;width:100%;text-align:center;padding:14px 16px;color:#242424;font-family:inherit;font-size:16px;line-height:1.4}
+#efs-donation-dialog .efs-donation-primary{background:#f9cb45;border:1px solid #242424;border-radius:4px;font-weight:700;text-decoration:none;margin-top:24px;cursor:pointer}
+#efs-donation-dialog .efs-donation-primary:disabled{opacity:.65;cursor:wait}
+#efs-donation-dialog .efs-donation-note{font-size:13px;line-height:1.5;color:#555;margin:12px 0}
+#efs-donation-dialog .efs-donation-continue{display:none;background:#242424;color:white;border-radius:4px;text-decoration:none}
+#efs-donation-dialog[data-checkout-opened] .efs-donation-continue{display:block}
+#efs-donation-dialog label{display:block;font-size:14px;line-height:1.4;font-weight:600;margin:16px 0 6px}
+#efs-donation-dialog input{box-sizing:border-box;width:100%;min-height:46px;padding:10px 12px;background:white;border:1px solid #777;border-radius:4px;color:#242424;font:inherit;font-size:16px}
+#efs-donation-dialog .efs-registration-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+#efs-donation-dialog #efs-registration-error{font-size:14px;color:#9a2525}
+#efs-donation-dialog :focus-visible{outline:3px solid #6353b8;outline-offset:4px}
+@media(max-width:479px){#efs-donation-dialog{padding:40px 20px 20px}#efs-donation-dialog h2{font-size:25px}}
+</style>
+<script>
+(function(){
+  function init(){
+    var modal=document.getElementById('efs-donation-dialog');
+    if(!modal||modal.dataset.ready)return;
+    modal.dataset.ready='true';
+    var form=document.getElementById('efs-registration-form');
+    var options=document.getElementById('efs-donation-options');
+    var nameInput=document.getElementById('efs-registration-name');
+    var emailInput=document.getElementById('efs-registration-email');
+    var submit=document.getElementById('efs-registration-submit');
+    var error=document.getElementById('efs-registration-error');
+    var status=document.getElementById('efs-registration-status');
+    var lastTrigger, saving=false, registered=false;
+    document.addEventListener('click',function(event){
+      var link=event.target.closest('a');
+      if(!link||modal.contains(link))return;
+      if(link.id==='efs-payment-button'||link.id==='utmButton'||link.id==='w-node-_21cd2a77-62c5-1629-6c39-7234d71177a9-d71177a3'||link.href==='https://emergingfounderschool.givingafoundation.tech/p/donate?slug=founder-track'){
+        event.preventDefault();event.stopImmediatePropagation();lastTrigger=link;
+        if(!modal.open)modal.showModal();
+      }
+    },true);
+    modal.querySelector('.efs-donation-close').addEventListener('click',function(){modal.close()});
+    modal.addEventListener('click',function(event){if(event.target===modal){var r=modal.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)modal.close()}});
+    modal.addEventListener('close',function(){if(lastTrigger)lastTrigger.focus()});
+    form.addEventListener('submit',async function(event){
+      event.preventDefault();event.stopImmediatePropagation();
+      if(saving||registered)return;
+      nameInput.value=nameInput.value.trim();emailInput.value=emailInput.value.trim();
+      if(!form.reportValidity())return;
+      error.hidden=true;status.textContent='Saving your registration…';saving=true;submit.disabled=true;
+      nameInput.readOnly=true;emailInput.readOnly=true;
+      var controller=new AbortController();var timeout=setTimeout(function(){controller.abort()},22000);
+      try{
+        var response=await fetch('https://efslanding.vercel.app/api/efs-register',{
+          method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',signal:controller.signal,
+          body:JSON.stringify({name:nameInput.value,email:emailInput.value,website:document.getElementById('efs-registration-website').value})
+        });
+        var result=await response.json();
+        if(!response.ok||result.saved!==true)throw new Error(response.status===429?'Too many attempts. Please wait one minute and try again.':'We could not confirm your registration. Please try again shortly.');
+        registered=true;form.hidden=true;options.hidden=false;form.reset();
+        if(modal.open)document.getElementById('efs-registration-success').focus();
+      }catch(failure){
+        error.textContent=failure.name==='AbortError'?'The connection timed out. Please try again shortly.':(failure.message==='Too many attempts. Please wait one minute and try again.'?failure.message:'We could not confirm your registration. Please check your connection and try again.');
+        error.hidden=false;
+      }finally{clearTimeout(timeout);saving=false;submit.disabled=false;nameInput.readOnly=false;emailInput.readOnly=false;status.textContent=''}
+    });
+    options.addEventListener('click',function(event){if(!registered){event.preventDefault();event.stopImmediatePropagation()}},true);
+    document.getElementById('efs-givinga-link').addEventListener('click',function(){if(registered)modal.dataset.checkoutOpened='true'});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>

@@ -7,7 +7,7 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <section className="bg-cream px-4 pt-8 pb-6">
+    <section className="corporate-hero bg-cream px-4 pt-8 pb-6">
       <div className="max-w-[860px] mx-auto">
         <motion.div
           variants={fadeUp}
@@ -16,7 +16,7 @@ export default function Hero() {
           className="flat-card rounded-xl px-8 py-10 md:px-12 md:py-14"
         >
           {/* Eyebrow */}
-          <span className="eyebrow-pill">Angel Squad · Emerging Founder School</span>
+          <span className="eyebrow-pill">Emerging Founder School · Corporate Track</span>
 
           {/* Headline */}
           <h1 className="mt-6 font-serif text-4xl md:text-5xl lg:text-[3.2rem] font-black leading-[1.05] tracking-tight text-ink max-w-[620px]">

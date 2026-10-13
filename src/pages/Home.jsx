@@ -15,7 +15,7 @@ import StickyBottomBar from "../components/StickyBottomBar";
 
 export default function Home() {
   return (
-    <main>
+    <main className="corporate-track">
       <Navbar />
       <Hero />
       <Speakers />

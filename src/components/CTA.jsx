@@ -7,7 +7,7 @@ const fadeUp = {
 
 export default function CTA() {
   return (
-    <section id="apply" className="bg-cream px-4 py-8">
+    <section id="apply" className="corporate-cta bg-cream px-4 py-8">
       <div className="max-w-[860px] mx-auto">
         <motion.div
           variants={fadeUp}

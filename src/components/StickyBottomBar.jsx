@@ -19,7 +19,7 @@ export default function StickyBottomBar({
       initial={{ y: 100 }}
       animate={{ y: visible ? 0 : 100 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-t border-[#dddbd3]"
+      className="corporate-sticky fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-t border-[#dddbd3]"
     >
       <div className="max-w-[860px] mx-auto px-6 py-3 flex items-center justify-between gap-4">
         <p className="text-[13px] text-muted hidden sm:block">{message}</p>

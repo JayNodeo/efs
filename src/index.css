@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+/* The same hosted brand fonts used on Hustle Fund's Webflow pages. */
+@font-face {
+  font-family: "Aeonik";
+  src: url("https://cdn.prod.website-files.com/6331a9a50eb8aa687c52dd23/6331a9a50eb8aafb0352de39_Aeonik-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GT America Mono";
+  src: url("https://cdn.prod.website-files.com/6331a9a50eb8aa687c52dd23/6331a9a50eb8aa20e452de3b_GT-America-Mono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   /* Brand palette */
   --color-brand-yellow: #F4CA66;
@@ -161,4 +177,100 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Corporate pages share the Webflow brand while the legacy founder route
+   retains its existing presentation. */
+.corporate-track {
+  --font-sans: "Aeonik", Arial, sans-serif;
+  --font-serif: "Aeonik", Arial, sans-serif;
+  --color-cream: #f6f3f0;
+  --color-ink: #3a3a3e;
+  --color-near-black: #111;
+  --color-muted: #55555a;
+  --color-subtle: #626267;
+  --color-border: #d6d2ce;
+  font-family: var(--font-sans);
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+.corporate-track [class*="max-w-[860px]"] { max-width: 1120px; }
+.corporate-track > section { padding: 48px 24px; scroll-margin-top: 100px; }
+.corporate-track h1,
+.corporate-track h2 {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -.035em;
+  line-height: 1.08;
+  white-space: normal;
+}
+.corporate-track h1 { font-size: clamp(42px, 5.5vw, 76px); max-width: 880px; }
+.corporate-track h2 { font-size: clamp(30px, 3.5vw, 48px); }
+.corporate-track em { font-family: inherit; font-style: normal; font-weight: inherit; color: inherit; }
+.corporate-track p { font-size: 16px; line-height: 1.6; }
+.corporate-track .arrow-list li { font-size: 15px; padding-block: 10px; }
+.corporate-track .flat-card { border: 1px solid var(--color-border); border-radius: 4px; padding: 28px; }
+.corporate-track .grid { gap: 20px; }
+.corporate-track .items-baseline { flex-wrap: wrap; row-gap: 12px; margin-bottom: 24px; }
+.corporate-track .eyebrow-pill,
+.corporate-track .amber-tag {
+  font-family: "GT America Mono", monospace;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.6;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+.corporate-track .eyebrow-pill::before { display: none; }
+.corporate-track a[class*="bg-brand-orange"],
+.corporate-track a[class*="border-ink"] {
+  font-family: "GT America Mono", monospace;
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  border: 1px solid #111;
+  border-radius: 0;
+  min-height: 48px;
+  padding: 14px 20px;
+  text-align: center;
+}
+.corporate-track a[class*="bg-brand-orange"] { background: #f4ca66; color: #111; }
+.corporate-track a[class*="bg-brand-orange"]:hover { background: #f8d789; }
+.corporate-track a:focus-visible { outline: 3px solid #8463bd; outline-offset: 4px; }
+.corporate-track .corporate-nav { background: #111; border-color: #3a3a3e; }
+.corporate-track .corporate-nav > div { gap: 24px; min-height: 88px; }
+.corporate-track .corporate-nav a:not([class*="bg-brand-orange"]) { color: #f6f3f0; }
+.corporate-track .corporate-nav a:first-child { font-family: "GT America Mono", monospace; font-size: 12px; font-weight: 400; max-width: 220px; }
+.corporate-track > .corporate-hero { background: #111; padding-block: 72px; }
+.corporate-track .corporate-hero .flat-card { background: transparent; border: 0; padding: 0; }
+.corporate-track .corporate-hero h1,
+.corporate-track .corporate-hero p,
+.corporate-track .corporate-hero .eyebrow-pill { color: #f6f3f0; }
+.corporate-track .corporate-hero h1 em { color: #f4ca66; }
+.corporate-track .corporate-hero p { max-width: 680px; }
+.corporate-track .corporate-hero a[class*="border-ink"] { color: #f6f3f0; border-color: #f6f3f0; }
+.corporate-track .corporate-hero a[class*="border-ink"]:hover { color: #111; background: #f6f3f0; }
+.corporate-track .corporate-hero hr { border-color: #555; }
+.corporate-track .corporate-hero .leading-none { font-size: 32px; font-weight: 400; }
+.corporate-track .corporate-hero .text-xs { font-size: 13px; color: #ccc; }
+.corporate-track .corporate-cta > div > div { background: #f4ca66 !important; border: 0; border-radius: 4px; }
+.corporate-track .corporate-cta a[class*="bg-brand-orange"] { background: #111; color: #f6f3f0; }
+.corporate-track .corporate-cta a[class*="bg-brand-orange"]:hover { background: #3a3a3e; }
+.corporate-track footer { padding-top: 40px; }
+.corporate-track footer p { font-size: 13px; }
+.corporate-track .corporate-sticky p { font-size: 14px; }
+@media (max-width: 640px) {
+  .corporate-track > section { padding: 32px 20px; }
+  .corporate-track > .corporate-hero { padding-block: 48px; }
+  .corporate-track .corporate-nav > div { padding: 16px; gap: 12px; }
+  .corporate-track .corporate-nav a:first-child { max-width: 160px; font-size: 10px; }
+  .corporate-track .corporate-nav a[class*="bg-brand-orange"] { font-size: 10px; padding: 12px; }
+  .corporate-track .flat-card { padding: 22px; }
+  .corporate-track .whitespace-nowrap { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

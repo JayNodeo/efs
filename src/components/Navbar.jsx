@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-[#dddbd3]">
+    <nav className="corporate-nav sticky top-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-[#dddbd3]">
       <div className="max-w-[860px] mx-auto px-6 py-4 flex items-center justify-between">
         <a href="/" className="font-serif text-ink text-sm font-bold uppercase tracking-[0.15em]">
           Emerging Founder School
@@ -8,19 +8,19 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-7">
           <a
-            href="#program"
+            href="/#program"
             className="text-muted text-[13px] font-medium tracking-wide hover:text-ink transition-colors"
           >
             Program
           </a>
           <a
-            href="#how-it-works"
+            href="/#how-it-works"
             className="text-muted text-[13px] font-medium tracking-wide hover:text-ink transition-colors"
           >
             How It Works
           </a>
           <a
-            href="#backed-by"
+            href="/#backed-by"
             className="text-muted text-[13px] font-medium tracking-wide hover:text-ink transition-colors"
           >
             Partners
@@ -28,7 +28,7 @@ export default function Navbar() {
         </div>
 
         <a
-          href="#apply"
+          href="/#apply"
           className="bg-brand-orange text-near-black text-[13px] font-medium tracking-wide px-5 py-2 rounded-lg hover:bg-brand-orange/90 transition-colors"
         >
           Get Started →

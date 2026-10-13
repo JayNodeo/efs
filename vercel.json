@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/api/efs-register", "destination": "/api/efs-register" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

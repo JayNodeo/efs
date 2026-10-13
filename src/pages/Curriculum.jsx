@@ -111,7 +111,7 @@ export default function Curriculum() {
   }, []);
 
   return (
-    <main>
+    <main className="corporate-track">
       <Navbar />
 
       {/* Hero */}
