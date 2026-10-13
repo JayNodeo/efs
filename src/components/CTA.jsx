@@ -1,3 +1,4 @@
+import PilotRequestForm from "./PilotRequestForm";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -28,14 +29,7 @@ export default function CTA() {
             to turn ideas into real business outcomes.
           </p>
 
-          <div className="mt-8">
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 bg-brand-orange text-near-black text-[15px] font-medium px-7 py-3 rounded-lg hover:bg-brand-orange/90 transition-colors"
-            >
-              Request a pilot →
-            </a>
-          </div>
+          <PilotRequestForm />
 
           <div className="mt-6 inline-flex items-center justify-center gap-2 text-[12px] text-subtle">
             <span className="w-3.5 h-3.5 rounded-full bg-[#C0DD97] flex items-center justify-center">

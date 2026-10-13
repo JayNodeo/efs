@@ -274,3 +274,20 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+.corporate-track .pilot-form { margin: 36px auto 0; max-width: 720px; text-align: left; }
+.corporate-track .pilot-form fieldset { border: 0; padding: 0; margin: 20px 0 0; min-width: 0; }
+.corporate-track .pilot-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.corporate-track .pilot-form label { display: block; font-size: 15px; line-height: 1.5; margin-bottom: 20px; }
+.corporate-track .pilot-form input,.corporate-track .pilot-form select,.corporate-track .pilot-form textarea { display: block; width: 100%; margin-top: 8px; border: 1px solid #555; border-radius: 0; background: #fffdf9; color: #111; padding: 12px; font: inherit; font-size: 16px; }
+.corporate-track .pilot-form textarea { resize: vertical; }
+.corporate-track .pilot-form button { min-height: 48px; background: #111; color: #f6f3f0; padding: 16px 24px; font: 13px "GT America Mono", monospace; text-transform: uppercase; cursor: pointer; }
+.corporate-track .pilot-form button:hover { background: #3a3a3e; }
+.corporate-track .pilot-form :disabled { opacity: .65; cursor: wait; }
+.corporate-track .pilot-form :focus-visible,.corporate-track .pilot-confirmation:focus { outline: 3px solid #634191; outline-offset: 3px; }
+.corporate-track .pilot-form .pilot-privacy { font-size: 13px; margin-bottom: 20px; }
+.corporate-track .pilot-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.corporate-track .pilot-form .pilot-error { margin-top: 16px; color: #751a12; }
+.corporate-track .pilot-confirmation { padding: 32px; margin-top: 32px; border: 1px solid #333; }
+.corporate-track .pilot-confirmation h3 { font-size: 26px; }
+@media(max-width:640px) { .corporate-track .pilot-fields { grid-template-columns: 1fr; gap: 0; } }
