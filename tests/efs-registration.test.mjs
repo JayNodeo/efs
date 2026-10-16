@@ -35,16 +35,16 @@ function send(body, { method = 'POST', headers = {}, raw = false } = {}) {
     ...(method === 'POST' ? { body: raw ? body : JSON.stringify(body) } : {}),
   });
 }
-test('public endpoint writes only trimmed name and email to the fixed EFS table, then confirms success', async () => {
+test('public endpoint writes trimmed name, email and Founder classification to the fixed EFS table, then confirms success', async () => {
   calls = [];
   upstream = async (destination, init) => {
     assert.equal(destination, 'https://api.airtable.com/v0/apppffVkNiSJ1sSVL/tbleiKXEucEbE2E6c');
     assert.equal(init.method, 'POST');
     assert.equal(init.headers.Authorization, 'Bearer test-only-credential');
-    assert.deepEqual(JSON.parse(init.body), { fields: { Name: 'Test Founder', 'Email Address:': 'test@example.com' } });
-    return Response.json({ id: 'recTest', fields: { Name: 'Test Founder', 'Email Address:': 'test@example.com' } });
+    assert.deepEqual(JSON.parse(init.body), { fields: { Track: 'Founder', Name: 'Test Founder', 'Email Address:': 'test@example.com' } });
+    return Response.json({ id: 'recTest', fields: { Track: 'Founder', Name: 'Test Founder', 'Email Address:': 'test@example.com' } });
   };
-  const response = await send({ name: '  Test Founder  ', email: 'TEST@example.com ', table: 'Payments', fields: { Score: 10 } });
+  const response = await send({ name: '  Test Founder  ', email: 'TEST@example.com ', track: 'Injected', Track: 'Injected', table: 'Payments', fields: { Score: 10, Track: 'Injected' } });
   assert.equal(response.status, 201);
   assert.deepEqual(await response.json(), { saved: true });
   assert.equal(response.headers.get('access-control-allow-origin'), origin);
@@ -86,7 +86,7 @@ test('upstream errors, incomplete saves and network failures never unlock the co
     assert.equal(response.status, 502);
     assert.equal((await response.text()).includes('must-not-leak'), false);
   }
-  for (const record of [{}, { id: 'recTest', fields: {} }, { id: 'recTest', fields: { Name: 'Test', 'Email Address:': 'a@b.com' }, details: { message: 'partialSuccess' } }]) {
+  for (const record of [{}, { id: 'recTest', fields: {} }, { id: 'recTest', fields: { Track: 'Founder', Name: 'Test', 'Email Address:': 'a@b.com' }, details: { message: 'partialSuccess' } }]) {
     upstream = async () => Response.json(record);
     assert.equal((await send({ name: 'Test', email: 'a@b.com' })).status, 502);
   }
@@ -95,7 +95,7 @@ test('upstream errors, incomplete saves and network failures never unlock the co
 });
 test('rapid repeated submissions are limited within the instance', async () => {
   calls = [];
-  upstream = async () => Response.json({ id: 'recTest', fields: { Name: 'Test', 'Email Address:': 'a@b.com' } });
+  upstream = async () => Response.json({ id: 'recTest', fields: { Track: 'Founder', Name: 'Test', 'Email Address:': 'a@b.com' } });
   for (let i = 0; i < 10; i++) assert.equal((await send({ name: 'Test', email: 'a@b.com' }, { headers: { 'x-vercel-forwarded-for': '192.0.2.9' } })).status, 201);
   const response = await send({ name: 'Test', email: 'a@b.com' }, { headers: { 'x-vercel-forwarded-for': '192.0.2.9' } });
   assert.equal(response.status, 429);

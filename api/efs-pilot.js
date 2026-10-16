@@ -1,4 +1,4 @@
-const AIRTABLE_URL = 'https://api.airtable.com/v0/apppffVkNiSJ1sSVL/tblFNJuVQ20en4EBv';
+const AIRTABLE_URL = 'https://api.airtable.com/v0/apppffVkNiSJ1sSVL/tbleiKXEucEbE2E6c';
 const ALLOWED_ORIGINS = new Set(['https://efslanding.vercel.app']);
 const MAX_BODY_BYTES = 16384;
 
@@ -76,7 +76,7 @@ export default {
         (body.goals != null && typeof body.goals !== 'string')) {
       return reply(400, { error: 'Please enter your company and check the optional fields.' });
     }
-    const fields = { Name: name, 'Work Email': email, Company: company };
+    const fields = { Name: name, 'Email Address:': email, Company: company, Track: 'Corporate' };
     if (teamSize) fields['Team Size'] = teamSize;
     if (goals) fields.Goals = goals;
     const token = process.env.AIRTABLE_EFS_TOKEN;

@@ -76,7 +76,7 @@ export default {
       const result = await fetch(AIRTABLE_URL, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fields: { Name: name, 'Email Address:': email } }),
+        body: JSON.stringify({ fields: { Name: name, 'Email Address:': email, Track: 'Founder' } }),
         signal: AbortSignal.timeout(15000),
       });
       if (!result.ok) {
@@ -84,7 +84,7 @@ export default {
         return reply(502, { error: 'We could not save your details. Please try again shortly.' });
       }
       const record = await result.json();
-      if (!record.id || record.fields?.Name !== name || record.fields?.['Email Address:'] !== email || record.details) {
+      if (!record.id || record.fields?.Track !== 'Founder' || record.fields?.Name !== name || record.fields?.['Email Address:'] !== email || record.details) {
         console.error('EFS Airtable registration returned an incomplete confirmation');
         return reply(502, { error: 'We could not confirm your registration. Please try again shortly.' });
       }
