@@ -1,5 +1,5 @@
 const AIRTABLE_URL = 'https://api.airtable.com/v0/apppffVkNiSJ1sSVL/tbleiKXEucEbE2E6c';
-const ALLOWED_ORIGINS = new Set(['https://hustle-fund.webflow.io']);
+const ALLOWED_ORIGINS = new Set(['https://hustle-fund.webflow.io', 'https://www.hustlefund.vc']);
 const MAX_BODY_BYTES = 4096;
 
 // A bounded, per-instance abuse guard. This is not a distributed rate limiter.

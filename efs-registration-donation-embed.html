@@ -44,6 +44,12 @@
 #efs-donation-dialog #efs-registration-error{font-size:14px;color:#9a2525}
 #efs-donation-dialog :focus-visible{outline:3px solid #6353b8;outline-offset:4px}
 @media(max-width:479px){#efs-donation-dialog{padding:40px 20px 20px}#efs-donation-dialog h2{font-size:25px}}
+@media(max-width:991px){
+  .as-navbar-container[data-efs-navigation] .as-navbar-left.locale{display:none!important}
+  .as-navbar-container[data-efs-navigation][data-efs-menu-open] .as-navbar-left.locale{display:flex!important;height:auto!important;max-height:70dvh;overflow:auto}
+  .as-navbar-container[data-efs-navigation] .menu-dropdown{cursor:pointer}
+  .as-navbar-container[data-efs-navigation] .menu-dropdown:focus-visible{outline:3px solid #f4ca66;outline-offset:3px}
+}
 </style>
 <script>
 (function(){
@@ -59,11 +65,37 @@
     var error=document.getElementById('efs-registration-error');
     var status=document.getElementById('efs-registration-status');
     var lastTrigger, saving=false, registered=false;
+    var nav=document.querySelector('.as-navbar-container');
+    var menu=nav&&nav.querySelector('.as-navbar-left.locale');
+    var toggle=nav&&nav.querySelector('.menu-dropdown');
+    function closeMenu(){if(nav&&toggle){nav.removeAttribute('data-efs-menu-open');toggle.setAttribute('aria-expanded','false')}}
+    if(menu&&toggle){
+      nav.setAttribute('data-efs-navigation','');
+      menu.id='efs-mobile-navigation';
+      toggle.setAttribute('role','button');toggle.setAttribute('tabindex','0');
+      toggle.setAttribute('aria-controls',menu.id);toggle.setAttribute('aria-expanded','false');
+      function toggleMenu(event){
+        if(!window.matchMedia('(max-width:991px)').matches)return;
+        event.preventDefault();event.stopImmediatePropagation();
+        var open=nav.toggleAttribute('data-efs-menu-open');
+        toggle.setAttribute('aria-expanded',String(open));
+      }
+      toggle.addEventListener('click',toggleMenu,true);
+      toggle.addEventListener('keydown',function(event){if(event.key==='Enter'||event.key===' ')toggleMenu(event)});
+      document.addEventListener('keydown',function(event){if(event.key==='Escape'&&nav.hasAttribute('data-efs-menu-open')){closeMenu();toggle.focus()}});
+      document.addEventListener('click',function(event){if(!nav.contains(event.target))closeMenu()});
+      menu.addEventListener('click',function(event){if(event.target.closest('a'))closeMenu()});
+      menu.querySelectorAll('a.highlight').forEach(function(link){
+        if(link.getAttribute('href')!=='https://airtable.com/apppffVkNiSJ1sSVL/shrvHR5f2ohbxeFya')return;
+        link.textContent='Start learning';link.href='#efs-donation-dialog';link.removeAttribute('target');
+        link.setAttribute('data-efs-register','');
+      });
+    }
     document.addEventListener('click',function(event){
       var link=event.target.closest('a');
       if(!link||modal.contains(link))return;
-      if(link.id==='efs-payment-button'||link.id==='utmButton'||link.id==='w-node-_21cd2a77-62c5-1629-6c39-7234d71177a9-d71177a3'||link.href==='https://emergingfounderschool.givingafoundation.tech/p/donate?slug=founder-track'){
-        event.preventDefault();event.stopImmediatePropagation();lastTrigger=link;
+      if(link.hasAttribute('data-efs-register')||link.id==='efs-payment-button'||link.id==='utmButton'||link.id==='w-node-_21cd2a77-62c5-1629-6c39-7234d71177a9-d71177a3'||link.href==='https://emergingfounderschool.givingafoundation.tech/p/donate?slug=founder-track'){
+        event.preventDefault();event.stopImmediatePropagation();lastTrigger=link;closeMenu();
         if(!modal.open)modal.showModal();
       }
     },true);

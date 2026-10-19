@@ -102,3 +102,20 @@ test('rapid repeated submissions are limited within the instance', async () => {
   assert.equal(response.headers.get('retry-after'), '60');
   assert.equal(calls.length, 10);
 });
+
+test('production domain can preflight and register while lookalike origins are rejected', async () => {
+  calls = [];
+  const production = 'https://www.hustlefund.vc';
+  const preflight = await send(null, { method: 'OPTIONS', headers: { Origin: production } });
+  assert.equal(preflight.status, 204);
+  assert.equal(preflight.headers.get('access-control-allow-origin'), production);
+  upstream = async () => Response.json({ id: 'recTest', fields: { Track: 'Founder', Name: 'Test', 'Email Address:': 'a@b.com' } });
+  const response = await send({ name: 'Test', email: 'a@b.com' }, { headers: { Origin: production } });
+  assert.equal(response.status, 201);
+  assert.equal(response.headers.get('access-control-allow-origin'), production);
+  assert.deepEqual(await response.json(), { saved: true });
+  for (const Origin of ['https://www.hustlefund.vc.evil.example', 'http://www.hustlefund.vc']) {
+    assert.equal((await send({}, { headers: { Origin } })).status, 403);
+  }
+  assert.equal(calls.length, 1);
+});
