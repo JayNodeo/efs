@@ -37,7 +37,7 @@ export default function CTA() {
                 <path d="M1 4L3 6L7 2" stroke="#27500A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
-            Powered by Hustle Fund and Angel Squad
+            Powered by Angel Squad
           </div>
         </motion.div>
       </div>
